@@ -43,6 +43,7 @@ struct api_client {
   struct p0f_api_response out_data;     /* Response transmit buffer           */
   u32 out_off;                          /* Response buffer offset             */
 
+  u8* json_out_data;
 };
 
 #endif /* !_HAVE_P0F_H */

@@ -73,6 +73,7 @@ struct p0f_api_response {
 #ifdef _FROM_P0F
 
 void handle_query(struct p0f_api_query* q, struct p0f_api_response* r);
+void handle_json_query(struct p0f_api_query* q, char** jr);
 
 #endif /* _FROM_API */
 

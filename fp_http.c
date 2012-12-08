@@ -847,6 +847,7 @@ static void fingerprint_http(u8 to_srv, struct packet_flow* f) {
 
   struct http_sig_record* m;
   u8* lang = NULL;
+  u8* raw_sig;
 
   http_find_match(to_srv, &f->http_tmp, 0);
 
@@ -880,7 +881,14 @@ static void fingerprint_http(u8 to_srv, struct packet_flow* f) {
 
   add_observation_field("params", dump_flags(&f->http_tmp, m));
 
-  add_observation_field("raw_sig", dump_sig(to_srv, &f->http_tmp));
+  raw_sig = dump_sig(to_srv, &f->http_tmp);
+  add_observation_field("raw_sig", raw_sig);
+
+  if (to_srv) {
+    f->client->http_raw_sig = raw_sig;
+  } else {
+    f->server->http_raw_sig = raw_sig;
+  }
 
   score_nat(to_srv, f);
 
