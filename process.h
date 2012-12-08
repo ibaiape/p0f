@@ -135,6 +135,9 @@ struct host_data {
 
   u16 http_resp_port;                   /* Port on which response seen        */
 
+  u8* tcp_raw_sig;
+  u8* http_raw_sig;
+
 };
 
 /* Reasons for NAT detection: */
@@ -195,8 +198,6 @@ struct packet_flow {
 
   struct http_sig http_tmp;             /* Temporary signature                */
 
-  u8* tcp_raw_sig;
-  u8* http_raw_sig;
 };
 
 extern u64 packet_cnt;
