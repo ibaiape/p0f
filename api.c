@@ -225,7 +225,7 @@ void handle_json_query(struct p0f_api_query* q, char** jr) {
 finalize:
   /* copy the serialized string, before json_object_put() destroys it */
   tmp = (char*)json_object_to_json_string_ext(obj, JSON_C_TO_STRING_PLAIN);
-  *jr = (char*)calloc(strlen(tmp)+1, sizeof(char));
+  *jr = (char*)ck_alloc(strlen(tmp)+1);
   strncpy(*jr, tmp, strlen(tmp));
 
   if (ts) json_object_put(ts_obj);

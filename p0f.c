@@ -893,9 +893,7 @@ poll_again:
           else if (json_output && ctable[cur]->out_off ==
                    strlen((char*)ctable[cur]->json_out_data)) {
 
-            if (ctable[cur]->json_out_data) {
-              free(ctable[cur]->json_out_data);
-            }
+            ck_free(ctable[cur]->json_out_data);
             ctable[cur]->in_off = ctable[cur]->out_off = 0;
             pfds[cur].events   = (POLLIN | POLLERR | POLLHUP);
 
