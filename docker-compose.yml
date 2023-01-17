@@ -9,5 +9,6 @@ services:
     network_mode: "host"
     image: "p0f"
     read_only: true
+    privileged: true
     volumes:
      - ./logs:/var/log/p0f

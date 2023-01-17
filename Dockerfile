@@ -24,4 +24,4 @@ RUN rm -rf /root/* && \
 # Start suricata
 WORKDIR /opt/p0f
 USER p0f:p0f
-CMD exec /opt/p0f/p0f -u p0f -j -o /var/log/p0f/p0f.json -i eth0 > /dev/null
+CMD exec /opt/p0f/p0f -u p0f -j -o /var/log/p0f/p0f.json -i eth0 -p > /dev/null
