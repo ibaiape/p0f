@@ -1,0 +1,13 @@
+version: '2.3'
+
+services:
+
+# P0f service
+  p0f:
+    build: .
+    container_name: p0f
+    network_mode: "host"
+    image: "p0f"
+    read_only: true
+    volumes:
+     - ./logs:/var/log/p0f
